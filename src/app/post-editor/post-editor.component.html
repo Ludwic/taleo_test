@@ -1,0 +1,29 @@
+<div class="container">
+    <div *ngIf="post" class="col-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col" sortable="name">Title</th>
+          <th scope="col" sortable="name">body</th>
+          <th scope="col" sortable="name">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">{{ post.id }}</th>
+          <td>
+            <textarea [(ngModel)]="post.title" rows="10" [disabled]="!activedEdition"></textarea>
+          </td>
+          <td>
+            <textarea [(ngModel)]="post.body" rows="10" [disabled]="!activedEdition"></textarea>
+          </td>
+          <td>
+            <button *ngIf="!activedEdition" (click)="activeEdition()">Edit</button>
+            <button *ngIf="activedEdition" (click)="save()">Save</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
